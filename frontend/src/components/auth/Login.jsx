@@ -7,6 +7,11 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useAuth } from '../../context/AuthContext';
 
+// Create axios instance with base URL
+const api = axios.create({
+  baseURL: import.meta.env.VITE_BACKEND_URL || 'https://phd-visvesvaraya.vercel.app'
+});
+
 export function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -33,20 +38,7 @@ export function Login() {
     setIsLoading(true);
 
     try {
-      // If environment variable is not set, use the production backend URL directly
-      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://phd-visvesvaraya.vercel.app';
-      console.log('Backend URL:', backendUrl);
-      
-      const response = await axios.post(
-        `${backendUrl}/api/auth/login`,
-        formData,
-        {
-          // Prevent automatic URL modification
-          baseURL: '',
-          // Ensure we're using absolute URL
-          url: `${backendUrl}/api/auth/login`
-        }
-      );
+      const response = await api.post('/api/auth/login', formData);
       
       // Use the login function from AuthContext
       login(response.data, response.data.user);
