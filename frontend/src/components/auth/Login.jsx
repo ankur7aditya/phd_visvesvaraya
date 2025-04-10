@@ -17,6 +17,9 @@ export function Login() {
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  // Debug environment variable
+  console.log('Backend URL:', import.meta.env.VITE_BACKEND_URL);
+
   const handleChange = (e) => {
     setFormData({
       ...formData,
@@ -30,9 +33,19 @@ export function Login() {
     setIsLoading(true);
 
     try {
+      // If environment variable is not set, use the production backend URL directly
+      const backendUrl = import.meta.env.VITE_BACKEND_URL || 'https://phd-visvesvaraya.vercel.app';
+      console.log('Backend URL:', backendUrl);
+      
       const response = await axios.post(
-        `${import.meta.env.VITE_BACKEND_URL}/api/auth/login`,
-        formData
+        `${backendUrl}/api/auth/login`,
+        formData,
+        {
+          // Prevent automatic URL modification
+          baseURL: '',
+          // Ensure we're using absolute URL
+          url: `${backendUrl}/api/auth/login`
+        }
       );
       
       // Use the login function from AuthContext
