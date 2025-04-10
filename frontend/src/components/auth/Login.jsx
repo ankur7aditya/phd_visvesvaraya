@@ -7,11 +7,6 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useAuth } from '../../context/AuthContext';
 
-// Create axios instance with base URL
-const api = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL
-});
-
 export function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
@@ -35,7 +30,10 @@ export function Login() {
     setIsLoading(true);
 
     try {
-      const response = await api.post('/api/auth/login', formData);
+      const response = await axios.post(
+        `${import.meta.env.VITE_BACKEND_URL}/api/auth/login`,
+        formData
+      );
       
       // Use the login function from AuthContext
       login(response.data, response.data.user);
