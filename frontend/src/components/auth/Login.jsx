@@ -9,7 +9,7 @@ import { useAuth } from '../../context/AuthContext';
 
 // Create axios instance with base URL
 const api = axios.create({
-  baseURL: import.meta.env.VITE_BACKEND_URL || 'https://phd-visvesvaraya.vercel.app'
+  baseURL: import.meta.env.VITE_BACKEND_URL
 });
 
 export function Login() {
@@ -21,9 +21,6 @@ export function Login() {
   });
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-
-  // Debug environment variable
-  console.log('Backend URL:', import.meta.env.VITE_BACKEND_URL);
 
   const handleChange = (e) => {
     setFormData({
