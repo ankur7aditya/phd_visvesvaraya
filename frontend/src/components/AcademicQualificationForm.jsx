@@ -1119,13 +1119,13 @@ export default function AcademicQualificationForm() {
             <h2 className="text-lg font-medium text-gray-700">Interested Area of Research</h2>
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <Label htmlFor="research-branch" className="text-sm font-medium text-gray-700">Department (for S&H write "S&H subsection" where subsection are: Mathematics, Physics, Chemistry, English, Social Science)</Label>
+                <Label htmlFor="research-branch" className="text-sm font-medium text-gray-700">Department</Label>
                 <Input
                   id="research-branch"
                   name="branch"
                   value={formData.research_interest?.branch || ""}
                   onChange={handleResearchInterestChange}
-                  placeholder="Enter your branch (e.g.,CE, CSE, ECE, EIE, EEE, ME,S&H)"
+                  placeholder="Enter your branch (e.g., CSE, ECE, EIE, EEE, ME)"
                   required
                 />
               </div>
