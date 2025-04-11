@@ -484,7 +484,7 @@ export default function AdmissionForm() {
           <div className="mt-4 space-y-2 text-sm text-gray-600">
             <p className="font-medium">Note:</p>
             <ol className="list-decimal pl-5 space-y-1">
-              <li>Submit separate applications for applying in one or more Departments </li>
+              <li>Submit separate applications for applying in one or more Departments (Regular or IR)</li>
               <li>The candidate shall submit his/her research plan in about 250 to 300 words along with his/her application</li>
             </ol>
           </div>
@@ -503,6 +503,7 @@ export default function AdmissionForm() {
             <option value="">Select Mode of PhD</option>
             <option value="Full Time">Full Time</option>
             <option value="Part Time">Part Time</option>
+            <option value="Full Time (Sponsored)">Full Time (Sponsored)</option>
           </select>
         </div>
 
@@ -757,23 +758,6 @@ export default function AdmissionForm() {
             )}
             <p className="text-xs text-gray-500">Enter a valid 10-digit mobile number</p>
           </div>
-        </div>
-
-        <div>
-          <Label htmlFor="current_address.pincode" required>Pincode</Label>
-          <Input
-            id="current_address.pincode"
-            name="current_address.pincode"
-            value={formData.current_address.pincode}
-            onChange={handleChange}
-            required
-            className={errors['current_address.pincode'] ? "border-red-500" : ""}
-            placeholder="6-digit pincode"
-          />
-          {errors['current_address.pincode'] && (
-            <p className="text-sm text-red-500 mt-1">{errors['current_address.pincode']}</p>
-          )}
-          <p className="text-xs text-gray-500">Enter a valid 6-digit pincode</p>
         </div>
 
         {/* Communication Address */}
