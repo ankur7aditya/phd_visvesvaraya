@@ -484,7 +484,7 @@ export default function AdmissionForm() {
           <div className="mt-4 space-y-2 text-sm text-gray-600">
             <p className="font-medium">Note:</p>
             <ol className="list-decimal pl-5 space-y-1">
-              <li>Submit separate applications for applying in one or more Departments (Regular or IR)</li>
+              <li>Submit separate applications for applying in one or more Departments </li>
               <li>The candidate shall submit his/her research plan in about 250 to 300 words along with his/her application</li>
             </ol>
           </div>
@@ -503,7 +503,6 @@ export default function AdmissionForm() {
             <option value="">Select Mode of PhD</option>
             <option value="Full Time">Full Time</option>
             <option value="Part Time">Part Time</option>
-            <option value="Full Time (Sponsored)">Full Time (Sponsored)</option>
           </select>
         </div>
 
